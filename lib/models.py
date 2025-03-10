@@ -13,7 +13,7 @@ class Role(Base):
     __tablename__ = 'roles'
 
     id = Column(Integer, primary_key=True)
-    character_name = Column(String, nullable=False)
+    character_name = Column(String())
 
     auditions = relationship('Audition', backref=backref('role'))
 
@@ -36,9 +36,9 @@ class Audition(Base):
     __tablename__ = 'auditions'
 
     id = Column(Integer, primary_key=True)
-    actor = Column(String, nullable=False)
-    location = Column(String, nullable=False)
-    phone = Column(Integer, nullable=False)
+    actor = Column(String())
+    location = Column(String())
+    phone = Column(Integer())
     hired = Column(Boolean, default=False)
 
     role_id = Column(Integer, ForeignKey('roles.id'))
